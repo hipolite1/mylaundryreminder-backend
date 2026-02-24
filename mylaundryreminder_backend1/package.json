@@ -4,18 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hipolite1/mylaundryreminder-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hipolite1/mylaundryreminder-backend/issues"
+  },
+  "homepage": "https://github.com/hipolite1/mylaundryreminder-backend#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "better-sqlite3": "^12.6.2",
-    "body-parser": "^2.2.2",
     "cors": "^2.8.6",
-    "crypto": "^1.0.1",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "sqlite3": "^5.1.7",

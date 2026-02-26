@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyLaundryReminder Login</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <h1>MyLaundryReminder Login</h1>
+
+  <form id="loginForm">
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <br><br>
+    <input type="password" id="password" placeholder="Password" required>
+    <br><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="loginMessage"></p>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const loginMessage = document.getElementById("loginMessage");
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const phone = document.getElementById("phone").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const response = await fetch("/login", {  // <-- use relative path
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phone, password })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          loginMessage.textContent = data.error || "Login failed";
+          return;
+        }
+
+        // Save userId to localStorage for dashboard session
+        localStorage.setItem("userId", data.userId);
+
+        // Redirect to dashboard
+        window.location.href = "dashboard.html";
+
+      } catch (error) {
+        console.error("Login error:", error);
+        loginMessage.textContent = "Error logging in. Check console.";
+      }
+    });
+  </script>
+
+</body>
+</html>

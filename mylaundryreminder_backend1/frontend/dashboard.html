@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyLaundryReminder Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <h1>MyLaundryReminder Dashboard</h1>
+
+  <!-- Add Pickup Form -->
+  <form id="addPickupForm">
+    <h2>Add Pickup</h2>
+    <input type="text" id="customerName" placeholder="Customer Name" required>
+    <input type="text" id="customerPhone" placeholder="Customer Phone" required>
+    <input type="date" id="dueDate" required>
+    <button type="submit">Add Pickup</button>
+    <p id="message"></p>
+  </form>
+
+  <!-- Pickups Table -->
+  <h2>Your Pickups</h2>
+  <table id="pickupTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer Name</th>
+        <th>Phone</th>
+        <th>Due Date</th>
+        <th>Picked Up</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Populated by dashboard.js -->
+    </tbody>
+  </table>
+
+  <!-- Logout Button -->
+  <button id="logoutBtn" class="logout">Logout</button>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
